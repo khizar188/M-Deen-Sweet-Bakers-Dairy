@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M Deen Sweet Bakers & Dairy</title>
+<meta name="description" content="Fresh mithai, bakery and dairy from M Deen Sweet Bakers and Dairy. Build your order and send it on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4f6f8;--card:#fff;--ink:#0f1729;--mute:#5b6478;--cobalt:#2f4bff;--butter:#ffd84d;--sky:#d9e3ff;--line:#dde2ea;
+--display:'Bricolage Grotesque','Arial Black',sans-serif;--body:'Instrument Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);font-size:17px;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.025em;line-height:1.02}
+h2{font-size:clamp(2rem,4.6vw,3.4rem);margin-bottom:.35em}
+
+header{position:sticky;top:0;z-index:30;background:rgba(244,246,248,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.25rem;letter-spacing:-.02em;text-decoration:none}
+.logo span{font-weight:500;color:var(--mute)}
+nav{display:flex;gap:28px;font-weight:500;font-size:.95rem}
+nav a{text-decoration:none;color:var(--mute)}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-block;padding:14px 26px;border-radius:12px;font:inherit;font-weight:600;text-decoration:none;border:0;cursor:pointer}
+.btn-primary{background:var(--cobalt);color:#fff}
+.btn-primary:hover{background:#1f38d6}
+.btn-line{background:transparent;box-shadow:inset 0 0 0 2px var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+
+.hero{padding:64px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(3rem,8vw,6.4rem);margin-bottom:.28em}
+.hero p{font-size:1.2rem;color:var(--mute);max-width:30em;margin-bottom:1.7em}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:200px 200px;gap:14px}
+.tile{position:relative;overflow:hidden;border-radius:22px;display:flex;align-items:flex-end;padding:20px}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile figcaption{position:relative;font-family:var(--display);font-weight:800;font-size:1.9rem;letter-spacing:-.02em;line-height:1}
+.tile::before{content:"";position:absolute;width:150px;height:150px;border-radius:50%;border:26px solid rgba(255,255,255,.28);right:-46px;top:-46px}
+.tile:has(img)::before{display:none}
+.tile:has(img) figcaption{background:#fff;color:var(--ink);padding:8px 14px;border-radius:999px;font-size:1rem}
+.t1{grid-row:span 2;background:var(--cobalt);color:#fff;font-size:1rem}
+.t1 figcaption{font-size:2.6rem}
+.t2{background:var(--butter)}
+.t3{background:var(--sky)}
+
+.info{background:var(--card);border-block:1px solid var(--line)}
+.info .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.info div{padding:26px 24px 26px 0}
+.info div+div{padding-left:24px;border-left:1px solid var(--line)}
+.info h3{font-size:1rem;color:var(--mute);font-family:var(--body);font-weight:600;letter-spacing:0;margin-bottom:4px}
+.info p{font-weight:500}
+
+section{padding:88px 0}
+.story{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.story .big{font-family:var(--display);font-weight:500;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.25;letter-spacing:-.015em}
+.story p+p{margin-top:1em;color:var(--mute);max-width:34em}
+.facts{display:grid;gap:0}
+.facts div{padding:20px 0;border-top:2px solid var(--ink)}
+.facts b{display:block;font-family:var(--display);font-size:1.35rem;letter-spacing:-.01em}
+.facts span{color:var(--mute)}
+
+.menu{background:var(--card)}
+.menu-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.menu-head p{color:var(--mute);max-width:26em}
+.menu-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.menu h3{font-size:1.9rem;margin-bottom:14px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
+.menu ul{list-style:none;padding:0}
+.menu li{padding:13px 0;border-bottom:1px solid var(--line);font-weight:600}
+.menu li small{display:block;font-weight:400;color:var(--mute);font-size:.9rem;line-height:1.4}
+
+.order-box{background:var(--card);border-radius:28px;padding:clamp(20px,4vw,44px);margin-top:28px;box-shadow:0 1px 0 var(--line),0 30px 60px -40px rgba(15,23,41,.35)}
+.order-cols{display:grid;grid-template-columns:1.25fr 1fr;gap:48px}
+.o-group{font-family:var(--display);font-weight:800;font-size:1.25rem;margin:22px 0 4px}
+.o-group:first-child{margin-top:0}
+.o-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.o-row .u{color:var(--mute);font-size:.85rem}
+.stepper{display:flex;align-items:center;gap:6px}
+.stepper button{width:36px;height:36px;border-radius:10px;border:0;background:var(--paper);font-size:1.2rem;font-weight:600;cursor:pointer;color:var(--ink)}
+.stepper button:hover{background:var(--cobalt);color:#fff}
+.stepper output{min-width:36px;text-align:center;font-weight:600}
+.o-form{background:var(--paper);border-radius:20px;padding:24px;align-self:start}
+.o-form label{display:block;font-weight:600;margin-bottom:14px;font-size:.94rem}
+.o-form input,.o-form select,.o-form textarea{width:100%;margin-top:6px;padding:12px 14px;border:2px solid transparent;border-radius:10px;font:inherit;background:#fff}
+.o-form input:focus,.o-form select:focus,.o-form textarea:focus{border-color:var(--cobalt);outline:0}
+.summary{background:var(--sky);border-radius:12px;padding:12px 14px;margin-bottom:14px;font-size:.92rem;min-height:3.2em}
+.err{color:#c4162a;font-weight:600;min-height:1.4em;margin-bottom:8px;font-size:.92rem}
+.btn-send{width:100%;background:var(--ink);color:#fff}
+.btn-send:hover{background:var(--cobalt)}
+.note{font-size:.84rem;color:var(--mute);margin-top:10px}
+
+.visit .grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:stretch}
+.visit address{font-style:normal;margin-bottom:1em;font-size:1.1rem}
+.hrs{list-style:none;padding:0;max-width:320px;margin:14px 0 24px}
+.hrs li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line)}
+.visit iframe{width:100%;height:100%;min-height:360px;border:0;border-radius:24px;background:var(--sky)}
+footer{background:var(--ink);color:#fff;padding:40px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:end}
+footer .logo{font-size:1.6rem}
+footer p{color:#aab3c5;font-size:.92rem}
+
+@media(max-width:880px){
+ nav{display:none}
+ .hero .wrap,.story,.menu-cols,.order-cols,.visit .grid{grid-template-columns:1fr}
+ .hero{padding-top:36px}.mosaic{grid-template-rows:170px 170px}
+ .info .wrap{grid-template-columns:1fr}.info div,.info div+div{padding:18px 0;border-left:0}.info div+div{border-top:1px solid var(--line)}
+ section{padding:60px 0}.menu-cols{gap:36px}
+}
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:40;display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;text-decoration:none;font-weight:600;padding:12px 20px 12px 14px;border-radius:999px;box-shadow:0 10px 30px -8px rgba(15,23,41,.45)}
+.wa-float:hover{background:#1ebe5b}
+.wa-float svg{width:30px;height:30px;fill:#fff;flex:none}
+@media(max-width:560px){.wa-float{padding:13px}.wa-float span{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">M Deen <span>Sweet Bakers &amp; Dairy</span></a>
+    <nav aria-label="Main"><a href="#story">About</a><a href="#menu">Menu</a><a href="#order">Order</a><a href="#visit">Visit</a></nav>
+    <a class="btn btn-primary" href="#order" style="padding:10px 20px">Order now</a>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Sweets, bakes and milk, made fresh today.</h1>
+      <p>Your neighbourhood mithai shop, bakery and dairy under one roof. Build your order online and we will have it ready.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#order">Build your order</a>
+        <a class="btn btn-line" href="https://maps.app.goo.gl/2n5bArhqLgHRq1527" target="_blank" rel="noopener">Find the shop</a>
+      </div>
+    </div>
+    <!-- Photo slots: add images/jalebi.jpg, images/cakes.jpg, images/milk.jpg and they appear automatically -->
+    <div class="mosaic">
+      <figure class="tile t1"><img src="images/jalebi.jpg" alt="Hot jalebi" onerror="this.remove()"><figcaption>Fresh mithai</figcaption></figure>
+      <figure class="tile t2"><img src="images/cakes.jpg" alt="Cakes and pastries" onerror="this.remove()"><figcaption>Bakes</figcaption></figure>
+      <figure class="tile t3"><img src="images/milk.jpg" alt="Fresh milk and yogurt" onerror="this.remove()"><figcaption>Dairy</figcaption></figure>
+    </div>
+  </div>
+</div>
+
+<div class="info">
+  <div class="wrap">
+    <div><h3>Address</h3><p>Chowk Hirabad, Heerabad, Mirpur Khas, Pakistan</p></div>
+    <div><h3>Open daily</h3><p>6:00 AM to 3:00 AM</p></div>
+    <div><h3>Call or WhatsApp</h3><p><a href="https://wa.me/923153037519" target="_blank" rel="noopener">+92 315 3037519</a></p></div>
+  </div>
+</div>
+
+<section id="story">
+  <div class="wrap story">
+    <div>
+      <p class="big">A shop people come back to for birthdays, Eid, weddings and ordinary evenings with chai.</p>
+      <p data-edit>[Add the owner's story here: when the shop opened, who runs it today, and the one item customers always ask for.]</p>
+    </div>
+    <div class="facts">
+      <div><b>Made fresh daily</b><span>Sweets and bakery items are prepared each day.</span></div>
+      <div><b>Pure dairy</b><span>Milk, yogurt and desi butter with nothing added.</span></div>
+      <div><b>Orders for occasions</b><span>Large orders, gift boxes and custom cakes on request.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <h2>The menu</h2>
+      <p>Ask us for today's prices and what is fresh out of the kitchen.</p>
+    </div>
+    <div class="menu-cols">
+      <div><h3>Sweets</h3><ul>
+        <li>Gulab jamun<small>Warm or cold, soaked in syrup</small></li>
+        <li>Barfi<small>Khoya, kaju and pista</small></li>
+        <li>Ras malai</li><li>Jalebi<small>Hot and crisp</small></li><li>Motichoor laddu</li></ul></div>
+      <div><h3>Bakery</h3><ul>
+        <li>Cakes<small>Made to order with your message</small></li>
+        <li>Pastries and patties</li><li>Naan khatai</li><li>Rusk and biscuits</li><li>Party boxes</li></ul></div>
+      <div><h3>Dairy</h3><ul>
+        <li>Fresh milk</li><li>Yogurt (dahi)</li><li>Lassi</li><li>Desi butter</li><li>Malai</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <h2>Order from home</h2>
+    <p style="color:var(--mute);max-width:36em">Choose your items and send the order to our WhatsApp. We will confirm the price and the time.</p>
+    <div class="order-box">
+      <div class="order-cols">
+        <div id="items" aria-label="Choose items"></div>
+        <form class="o-form" id="orderForm" novalidate>
+          <label>Your name<input id="name" autocomplete="name" placeholder="Enter your name"></label>
+          <label>Pickup or delivery
+            <select id="mode"><option>I will pick it up from the shop</option><option>Please deliver to my home</option></select></label>
+          <label>Address or special request
+            <textarea id="addr" rows="3" placeholder="Delivery address, or a note such as: write 'Happy Birthday Ali' on the cake"></textarea></label>
+          <div class="summary" id="summary" aria-live="polite">No items chosen yet.</div>
+          <div class="err" id="err" role="alert"></div>
+          <button class="btn btn-send" type="submit">Send order on WhatsApp</button>
+          <p class="note">WhatsApp opens with your message already written. You can review it before sending.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" class="visit" style="padding-top:20px">
+  <div class="wrap grid">
+    <div>
+      <h2>Visit the shop</h2>
+      <address>Chowk Hirabad, Heerabad, Mirpur Khas, Pakistan</address>
+      <ul class="hrs">
+        <li><span>Every day</span><strong>6:00 AM to 3:00 AM</strong></li>
+      </ul>
+      <a class="btn btn-primary" href="https://maps.app.goo.gl/2n5bArhqLgHRq1527" target="_blank" rel="noopener">Open in Google Maps</a>
+    </div>
+    <iframe title="Map showing M Deen Sweet Bakers and Dairy" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=25.5321887,69.0119833&amp;z=17&amp;output=embed"></iframe>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top">M Deen <span style="color:#aab3c5">Sweet Bakers &amp; Dairy</span></a>
+    <p>Fresh sweets, bakery and dairy.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/923153037519?text=Hello%20M%20Deen%20Sweet%20Bakers%20%26%20Dairy%2C%20I%20would%20like%20to%20ask%20about..." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>Chat on WhatsApp</span>
+</a>
+
+<script>
+/* ===== Edit your details here ===== */
+const WHATSAPP_NUMBER = "923153037519"; // with country code, no + or leading 0
+const ITEMS = [
+  {g:"Sweets",n:"Gulab jamun",u:"kg",s:.5},{g:"Sweets",n:"Barfi",u:"kg",s:.5},{g:"Sweets",n:"Ras malai",u:"kg",s:.5},
+  {g:"Sweets",n:"Jalebi",u:"kg",s:.5},{g:"Sweets",n:"Motichoor laddu",u:"kg",s:.5},
+  {g:"Bakery",n:"Cake",u:"pound",s:1},{g:"Bakery",n:"Naan khatai",u:"kg",s:.5},{g:"Bakery",n:"Rusk",u:"packet",s:1},
+  {g:"Dairy",n:"Fresh milk",u:"litre",s:1},{g:"Dairy",n:"Yogurt (dahi)",u:"kg",s:.5},{g:"Dairy",n:"Lassi",u:"litre",s:1},{g:"Dairy",n:"Desi butter",u:"kg",s:.5}
+];
+/* ================================== */
+const qty=ITEMS.map(()=>0),box=document.getElementById('items');let last="";
+ITEMS.forEach((it,i)=>{
+  if(it.g!==last){const h=document.createElement('div');h.className='o-group';h.textContent=it.g;box.appendChild(h);last=it.g}
+  const r=document.createElement('div');r.className='o-row';
+  r.innerHTML=`<div>${it.n} <span class="u">(${it.u})</span></div><div class="stepper"><button type="button" aria-label="Less ${it.n}">−</button><output id="q${i}">0</output><button type="button" aria-label="More ${it.n}">+</button></div>`;
+  const b=r.querySelectorAll('button');b[0].onclick=()=>change(i,-it.s);b[1].onclick=()=>change(i,it.s);box.appendChild(r);
+});
+function change(i,d){qty[i]=Math.max(0,Math.round((qty[i]+d)*10)/10);document.getElementById('q'+i).textContent=qty[i];renderSummary()}
+function lines(){return ITEMS.map((it,i)=>qty[i]>0?`${it.n}: ${qty[i]} ${it.u}`:null).filter(Boolean)}
+function renderSummary(){const l=lines();document.getElementById('summary').textContent=l.length?l.join(' | '):'No items chosen yet.';if(l.length)document.getElementById('err').textContent=''}
+document.getElementById('orderForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const err=document.getElementById('err'),l=lines(),name=document.getElementById('name').value.trim(),mode=document.getElementById('mode').value,addr=document.getElementById('addr').value.trim();
+  if(!l.length){err.textContent='Please choose at least one item.';return}
+  if(!name){err.textContent='Please enter your name so we know who the order is for.';return}
+  
+  const msg=`Hello M Deen Sweet Bakers & Dairy,\nMy name is ${name}. I would like to order:\n\n${l.map(x=>'- '+x).join('\n')}\n\n${mode}${addr?'\nNote/Address: '+addr:''}\n\nThank you!`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,'_blank','noopener');
+});
+</script>
+</body>
+</html>
